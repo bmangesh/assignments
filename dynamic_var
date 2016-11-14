@@ -1,0 +1,15 @@
+#! /bin/bash
+ip="field1;field2;field3;field4;field5;"
+total=`echo $ip | grep -o ";" | wc -l`
+
+touch > /tmp/count 2> /dev/null
+for i in `seq 1 $total`
+do
+
+         var="sample$i"
+
+       lb=`echo $ip | cut -d ";" -f$i`
+         echo ${var}=$lb
+
+        echo ${var}=$lb  >> /tmp/count
+done
